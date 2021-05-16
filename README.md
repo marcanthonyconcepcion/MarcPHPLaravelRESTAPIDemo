@@ -864,7 +864,7 @@ X-Powered-By: PHP/8.0.1
 }
 ```
 
-### Error Test Case 2: Call an API with a model that is not 'subscribers'
+### Error Test Case 3: Call an API with a model that is not 'subscribers'
 ```
 > http get http://127.0.0.1:8000/api/notsubscribers/11
 HTTP/1.1 400 Bad Request
@@ -881,7 +881,7 @@ X-RateLimit-Remaining: 59
     "error": "Invalid URL syntax. Please provide acceptable HTTP URL."
 }
 ```
-### Error Test Case 3: Call HTTP commands that are not being used by the API.
+### Error Test Case 4: Call HTTP commands that are not being used by the API.
 ```
 > http trace http://127.0.0.1:8000/api/subscribers/
 HTTP/1.0 405 Method Not Allowed
@@ -896,7 +896,7 @@ X-Powered-By: PHP/8.0.1
     "error": "The TRACE method is not supported for this route. Supported methods: GET, HEAD, PUT, PATCH, DELETE."
 }
 ```
-### Error Test Case 4-1: POST with specified ID.
+### Error Test Case 5-1: POST with specified ID.
 ```
 > http post http://127.0.0.1:8000/api/subscribers/12?email_address=riseofskywalker@starwars.com"&"last_name=Palpatine"&"first_name=Rey
 HTTP/1.0 405 Method Not Allowed
@@ -912,7 +912,7 @@ X-Powered-By: PHP/8.0.1
 }
 ```
 
-### Error Test Case 4-2: POST without required parameters
+### Error Test Case 5-2: POST without required parameters
 ```
 > http post http://127.0.0.1:8000/api/subscribers/
 HTTP/1.1 405 Method Not Allowed
@@ -930,7 +930,7 @@ X-RateLimit-Remaining: 58
 }
 ```
 
-### Error Test Case 4-3: PUT without specified ID.
+### Error Test Case 5-3: PUT without specified ID.
 ```
 > http put http://127.0.0.1:8000/api/subscribers?last_name=Skywalker
 HTTP/1.0 405 Method Not Allowed
@@ -946,7 +946,7 @@ X-Powered-By: PHP/8.0.1
 }
 ```
 
-### Error Test Case 4-4: PATCH without specified ID.
+### Error Test Case 5-4: PATCH without specified ID.
 ```
 > http patch http://127.0.0.1:8000/api/subscribers/?activation_flag=1
 HTTP/1.0 405 Method Not Allowed
@@ -962,7 +962,7 @@ X-Powered-By: PHP/8.0.1
 }
 ```
 
-### Error Test Case 4-5: PUT without required parameters
+### Error Test Case 5-5: PUT without required parameters
 ```
 > http put http://127.0.0.1:8000/api/subscribers/1
 HTTP/1.1 405 Method Not Allowed
@@ -980,7 +980,7 @@ X-RateLimit-Remaining: 57
 }
 ```
 
-### Error Test Case 4-6: PATCH without required parameters
+### Error Test Case 5-6: PATCH without required parameters
 ```
 > http patch http://127.0.0.1:8000/api/subscribers/1
 HTTP/1.1 405 Method Not Allowed
@@ -998,7 +998,7 @@ X-RateLimit-Remaining: 59
 }
 ```
 
-### Error Test Case 4-7: DELETE without specified ID
+### Error Test Case 5-7: DELETE without specified ID
 ```
 > http delete http://127.0.0.1:8000/api/subscribers/
 HTTP/1.0 405 Method Not Allowed
